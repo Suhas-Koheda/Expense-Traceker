@@ -21,11 +21,6 @@ const MainPage = () => {
                 </Link>
               </div>
             </div>
-            <div className='text-center py-2'><h4>Already have an account? <Link to="/login">
-              <button className="text-gray-600 hover:text-gray-900">Login here</button>
-            </Link>
-            </h4>
-            </div>
           </div>
         </div>
       </div>  
