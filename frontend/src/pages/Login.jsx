@@ -23,14 +23,9 @@ const Login = () => {
       if (!response.ok) {
         throw new Error('Invalid username or password');
       }
-
       const data = await response.json();
       const { jwt } = data;
-
-      
-      sessionStorage.setItem('token', jwt);
-
-      
+      sessionStorage.setItem('token', jwt);      
       navigate('/dashboard');
     } catch (err) {
       setError(err.message);

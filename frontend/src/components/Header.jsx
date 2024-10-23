@@ -1,9 +1,22 @@
 // src/components/Header.js (rename from Header.jsx)
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
-const Header = () => {
+import jwt from 'jsonwebtoken';
 
-  const loggedIn = false;
+const Header = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = sessionStorage.getItem('token');
+    if (token) {
+      const decodedToken = jwt.decode(token);
+      console.log(decodedToken);
+      setLoggedIn(true);  // Update the loggedIn state
+    } else {
+      console.log('No token found');
+      setLoggedIn(false);  // Make sure to set it to false if no token is found
+    }
+  }, []); 
 
   return (
     <div className='sticky top-0 shadow-md z-10 bg-white'>
