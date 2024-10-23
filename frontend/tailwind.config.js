@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       height: {
-        'dvh': '80dvh', // Adds dvh utility for dynamic viewport height
+        'dvh': '90dvh', // Adds dvh utility for dynamic viewport height
       },
     },
   },

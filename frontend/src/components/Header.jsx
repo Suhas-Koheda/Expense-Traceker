@@ -6,7 +6,7 @@ const Header = () => {
   const loggedIn = false;
 
   return (
-    <div className='sticky top-0 shadow-sm z-10'>
+    <div className='sticky top-0 shadow-md z-10 bg-white'>
       <nav className="p-4 flex items-center justify-between ">
         <div className='flex items-center'>
         <h1 className="text-2xl font-bold p-4">EQUI</h1>
