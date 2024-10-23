@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        'dvh': '80dvh', // Adds dvh utility for dynamic viewport height
+      },
+    },
   },
   plugins: [],
 }
