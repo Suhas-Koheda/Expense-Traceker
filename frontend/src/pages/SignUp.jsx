@@ -8,7 +8,7 @@ const SignUpUser = (e) => {
   const mail = document.getElementById('mail').value;
   const mobile = document.getElementById('mobile').value;
   const data = { username, password, mail, mobile };
-  fetch('http://localhost:8081/api/signup', {
+  fetch('http://localhost:8080/api/signup', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
