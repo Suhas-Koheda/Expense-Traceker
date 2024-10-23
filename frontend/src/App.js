@@ -1,16 +1,23 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header.jsx';
-import MainPage from './components/MainPage.jsx';
-import Features from './components/Features.jsx';
+import Header from './components/Header';
+import MainPage from './components/MainPage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
 
 function App() {
-  return (
-    <div className="min-h-screen bg-gray-50">
-      <Header />
-      <MainPage />
-      <Features/>
-    </div>
+  return (  
+    <Router> 
+      <div className="min-h-screen bg-gray-50">
+        <Header />
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signu" element={<SignUp />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

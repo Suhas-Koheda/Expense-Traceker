@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import Features from './Features'
 const MainPage = () => {
   return (
     <div>
@@ -29,6 +29,7 @@ const MainPage = () => {
           </div>
         </div>
       </div>  
+      <Features/>
     </div>
   )
 }
