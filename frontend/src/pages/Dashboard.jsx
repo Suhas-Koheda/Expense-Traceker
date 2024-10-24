@@ -7,7 +7,7 @@ import UserDetails from '../components/UserDetails.jsx';
 
 const Dashboard = () => {
 
-  var loggedIn = false;
+  var loggedIn = true;
 
   const token = sessionStorage.getItem('token');
   if (token) {
