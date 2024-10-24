@@ -7,14 +7,21 @@ const Header = () => {
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-    const token = sessionStorage.getItem('token');
-    if (token) {
-      const decodedToken = jwt.decode(token);
-      setLoggedIn(true);
-    } else {
-      console.log('No token found');
-      setLoggedIn(false);
-    }
+    const checkToken = () => {
+      const token = sessionStorage.getItem('token');
+      if (token) {
+        const decodedToken = jwt.decode(token);
+        setLoggedIn(true);
+      } else {
+        console.log('No token found');
+        setLoggedIn(false);
+      }
+    };
+
+    // Run the checkToken function every 5 seconds (5000 ms)
+    const intervalId = setInterval(() => {
+      checkToken();
+    }, 1000);
   }, []); 
 
   return (

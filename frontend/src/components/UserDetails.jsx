@@ -16,7 +16,7 @@ const UserDetails = () => {
         }
       } else {
         console.log('No token found');
-      }
+      }   
     }, []);
     return (
         <div className='flex flex-col items-center md:items-start'>
