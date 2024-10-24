@@ -10,11 +10,10 @@ const Header = () => {
     const token = sessionStorage.getItem('token');
     if (token) {
       const decodedToken = jwt.decode(token);
-      console.log(decodedToken);
-      setLoggedIn(true);  // Update the loggedIn state
+      setLoggedIn(true);
     } else {
       console.log('No token found');
-      setLoggedIn(false);  // Make sure to set it to false if no token is found
+      setLoggedIn(false);
     }
   }, []); 
 

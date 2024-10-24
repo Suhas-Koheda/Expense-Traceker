@@ -7,8 +7,8 @@ module.exports = {
       height: {
         'dvh': '87dvh',
       },
-      weight:{
-        'dvw': '80dvw',
+      width:{
+        'dvw': '70dvw',
       }
     },
   },

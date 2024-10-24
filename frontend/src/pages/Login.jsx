@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { jwtDecode } from "jwt-decode";
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -12,25 +13,34 @@ const Login = () => {
     setError(''); 
 
     try {
-      const response = await fetch('http://localhost:8080/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      });
+        const response = await fetch('http://localhost:8080/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password }),
+        });
 
-      if (!response.ok) {
-        throw new Error('Invalid username or password');
-      }
-      const data = await response.json();
-      const { jwt } = data;
-      sessionStorage.setItem('token', jwt);      
-      navigate('/dashboard');
+        if (response.ok) {
+            const jsonResponse = await response.json(); // Get the response body
+            const token = jsonResponse.token; // Access the token from the response body
+            
+            if (token) {
+                sessionStorage.setItem('token', token); // Save the token to sessionStorage
+                navigate('/dashboard');
+            } else {
+                console.error('No token received');
+            }
+        } else {
+            const errorMessage = await response.text();
+            setError('Login failed: ' + errorMessage);
+            console.error('Login failed:', errorMessage);
+        }
     } catch (err) {
-      setError(err.message);
+        setError(err.message);
     }
-  };
+};
+
 
   return (
     <div>

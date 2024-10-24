@@ -20,7 +20,7 @@ const SignUpUser = (e) => {
         alert('User Created Successfully');
         window.location.href = '/login';
       } else {
-        alert('User Creation Failed');
+        alert('User Creation Failed Server Error or Username already exists Please try again');
       }
     })
     .catch((error) => {

@@ -33,13 +33,16 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest authRequest) {
         try {
+            System.out.println(authRequest.getUsername()+" "+authRequest.getPassword());
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
             );
             final UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getUsername());
             final String jwt = jwtUtil.generateToken(userDetails.getUsername());
+            System.out.println(ResponseEntity.ok(new AuthResponse(jwt)));
             return ResponseEntity.ok(new AuthResponse(jwt));
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.status(401).body("Invalid username or password");
         }
     }

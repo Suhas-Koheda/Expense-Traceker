@@ -15,11 +15,9 @@ public class User {
     private String id;
     private String username;
     private String password;
-    private List<String> roles; // Adjust based on your role management
 
-    public User(String username, String password, List<String> roles) {
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.roles = roles;
     }
 }

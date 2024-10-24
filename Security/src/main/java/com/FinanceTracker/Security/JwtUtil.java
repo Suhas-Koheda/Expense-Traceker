@@ -1,4 +1,4 @@
-package     com.FinanceTracker.Security;
+package com.FinanceTracker.Security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
